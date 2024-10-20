@@ -1,0 +1,35 @@
+#include <stdio.h>
+int is_leap_year(int year)
+{
+    return (year%4==0&&year%100!=0) || (year%400==0);
+}
+int days_in_month(int month,int year)
+{
+    int days[] ={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if(month == 2 && is_leap_year(year)) 
+    {
+        return 29;
+    }
+    else
+    {
+        return days[month-1];
+    }
+}
+int main()
+{
+    int month, year;
+    printf("Enter month (1-12): ");
+    scanf("%d", &month);
+    printf("Enter year: ");
+    scanf("%d", &year);
+    if (month<1 || month>12) 
+    {
+        printf("Invalid month. Please enter between 1 and 12.");
+    }
+    else 
+    {
+        int days=days_in_month(month, year);
+        printf("Number of days in month: %d\n", days);
+    }
+    return 0;
+}
