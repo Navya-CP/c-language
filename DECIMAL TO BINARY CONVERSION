@@ -1,0 +1,30 @@
+
+#include<stdio.h>
+int main()
+ {
+    int decimalNumber;
+    printf("enter a number:");
+    scanf("%d",&decimalNumber);
+    decimalToBinary(decimalNumber);
+    return 0;
+}
+void decimalToBinary(int n)
+ {
+    int size=sizeof(n)*8;
+    int binary[size];
+    int index=0;
+    if(n==0)
+    {
+        return;
+    }
+    while(n>0)
+    {
+        binary[index++]=n%2;
+        n=n/2;
+    }
+    for (int i=index-1;i>=0;i--)
+    {
+        printf("%d",binary[i]);
+    }
+    printf("\n");
+}
